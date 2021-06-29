@@ -320,6 +320,7 @@ boolean PubSubClient::connect(const char* id, const char* user,
 boolean PubSubClient::readByte(uint8_t* result) {
   uint32_t previousMillis = millis();
   while (!_client->available()) {
+    idle();
     yield();
     uint32_t currentMillis = millis();
     if (currentMillis - previousMillis >=
@@ -424,6 +425,7 @@ boolean PubSubClient::loop() {
       uint16_t len = readPacket(&llen);
       uint16_t msgId = 0;
       uint8_t* payload;
+
       if (len > 0) {
         lastInActivity = t;
         uint8_t type = this->buffer[0] & 0xF0;

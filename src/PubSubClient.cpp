@@ -17,6 +17,8 @@ PubSubClient::PubSubClient() {
   setBufferSize(MQTT_MAX_PACKET_SIZE);
   setKeepAlive(MQTT_KEEPALIVE);
   setSocketTimeout(MQTT_SOCKET_TIMEOUT);
+
+  idle = []() {};
 }
 
 PubSubClient::PubSubClient(Client& client) {
@@ -27,6 +29,8 @@ PubSubClient::PubSubClient(Client& client) {
   setBufferSize(MQTT_MAX_PACKET_SIZE);
   setKeepAlive(MQTT_KEEPALIVE);
   setSocketTimeout(MQTT_SOCKET_TIMEOUT);
+
+  idle = []() {};
 }
 
 PubSubClient::PubSubClient(Client& client, void (*callback)()) {
@@ -50,6 +54,8 @@ PubSubClient::PubSubClient(IPAddress addr, uint16_t port, Client& client) {
   setBufferSize(MQTT_MAX_PACKET_SIZE);
   setKeepAlive(MQTT_KEEPALIVE);
   setSocketTimeout(MQTT_SOCKET_TIMEOUT);
+
+  idle = []() {};
 }
 PubSubClient::PubSubClient(IPAddress addr, uint16_t port, Client& client,
                            Stream& stream) {
@@ -61,6 +67,8 @@ PubSubClient::PubSubClient(IPAddress addr, uint16_t port, Client& client,
   setBufferSize(MQTT_MAX_PACKET_SIZE);
   setKeepAlive(MQTT_KEEPALIVE);
   setSocketTimeout(MQTT_SOCKET_TIMEOUT);
+
+  idle = []() {};
 }
 PubSubClient::PubSubClient(IPAddress addr, uint16_t port,
                            MQTT_CALLBACK_SIGNATURE, Client& client) {
@@ -73,6 +81,8 @@ PubSubClient::PubSubClient(IPAddress addr, uint16_t port,
   setBufferSize(MQTT_MAX_PACKET_SIZE);
   setKeepAlive(MQTT_KEEPALIVE);
   setSocketTimeout(MQTT_SOCKET_TIMEOUT);
+
+  idle = []() {};
 }
 PubSubClient::PubSubClient(IPAddress addr, uint16_t port,
                            MQTT_CALLBACK_SIGNATURE, Client& client,
@@ -86,6 +96,8 @@ PubSubClient::PubSubClient(IPAddress addr, uint16_t port,
   setBufferSize(MQTT_MAX_PACKET_SIZE);
   setKeepAlive(MQTT_KEEPALIVE);
   setSocketTimeout(MQTT_SOCKET_TIMEOUT);
+
+  idle = []() {};
 }
 
 PubSubClient::PubSubClient(uint8_t* ip, uint16_t port, Client& client) {
@@ -97,6 +109,8 @@ PubSubClient::PubSubClient(uint8_t* ip, uint16_t port, Client& client) {
   setBufferSize(MQTT_MAX_PACKET_SIZE);
   setKeepAlive(MQTT_KEEPALIVE);
   setSocketTimeout(MQTT_SOCKET_TIMEOUT);
+
+  idle = []() {};
 }
 PubSubClient::PubSubClient(uint8_t* ip, uint16_t port, Client& client,
                            Stream& stream) {
@@ -108,6 +122,8 @@ PubSubClient::PubSubClient(uint8_t* ip, uint16_t port, Client& client,
   setBufferSize(MQTT_MAX_PACKET_SIZE);
   setKeepAlive(MQTT_KEEPALIVE);
   setSocketTimeout(MQTT_SOCKET_TIMEOUT);
+
+  idle = []() {};
 }
 PubSubClient::PubSubClient(uint8_t* ip, uint16_t port, MQTT_CALLBACK_SIGNATURE,
                            Client& client) {
@@ -120,6 +136,8 @@ PubSubClient::PubSubClient(uint8_t* ip, uint16_t port, MQTT_CALLBACK_SIGNATURE,
   setBufferSize(MQTT_MAX_PACKET_SIZE);
   setKeepAlive(MQTT_KEEPALIVE);
   setSocketTimeout(MQTT_SOCKET_TIMEOUT);
+
+  idle = []() {};
 }
 PubSubClient::PubSubClient(uint8_t* ip, uint16_t port, MQTT_CALLBACK_SIGNATURE,
                            Client& client, Stream& stream) {
@@ -132,6 +150,8 @@ PubSubClient::PubSubClient(uint8_t* ip, uint16_t port, MQTT_CALLBACK_SIGNATURE,
   setBufferSize(MQTT_MAX_PACKET_SIZE);
   setKeepAlive(MQTT_KEEPALIVE);
   setSocketTimeout(MQTT_SOCKET_TIMEOUT);
+
+  idle = []() {};
 }
 
 PubSubClient::PubSubClient(const char* domain, uint16_t port, Client& client) {
@@ -143,6 +163,8 @@ PubSubClient::PubSubClient(const char* domain, uint16_t port, Client& client) {
   setBufferSize(MQTT_MAX_PACKET_SIZE);
   setKeepAlive(MQTT_KEEPALIVE);
   setSocketTimeout(MQTT_SOCKET_TIMEOUT);
+
+  idle = []() {};
 }
 PubSubClient::PubSubClient(const char* domain, uint16_t port, Client& client,
                            Stream& stream) {
@@ -154,6 +176,8 @@ PubSubClient::PubSubClient(const char* domain, uint16_t port, Client& client,
   setBufferSize(MQTT_MAX_PACKET_SIZE);
   setKeepAlive(MQTT_KEEPALIVE);
   setSocketTimeout(MQTT_SOCKET_TIMEOUT);
+
+  idle = []() {};
 }
 PubSubClient::PubSubClient(const char* domain, uint16_t port,
                            MQTT_CALLBACK_SIGNATURE, Client& client) {
@@ -166,6 +190,8 @@ PubSubClient::PubSubClient(const char* domain, uint16_t port,
   setBufferSize(MQTT_MAX_PACKET_SIZE);
   setKeepAlive(MQTT_KEEPALIVE);
   setSocketTimeout(MQTT_SOCKET_TIMEOUT);
+
+  idle = []() {};
 }
 PubSubClient::PubSubClient(const char* domain, uint16_t port,
                            MQTT_CALLBACK_SIGNATURE, Client& client,
@@ -179,6 +205,8 @@ PubSubClient::PubSubClient(const char* domain, uint16_t port,
   setBufferSize(MQTT_MAX_PACKET_SIZE);
   setKeepAlive(MQTT_KEEPALIVE);
   setSocketTimeout(MQTT_SOCKET_TIMEOUT);
+
+  idle = []() {};
 }
 
 PubSubClient::~PubSubClient() { free(this->buffer); }
